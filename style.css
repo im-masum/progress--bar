@@ -1,0 +1,86 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.step-progressbar {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(247, 250, 250);
+    width: 50%;
+    height: 200px;
+    align-items: center;
+  }
+  .stepper-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    
+    @media (max-width: 767px) {
+        font-size: 12px;
+    }
+}
+ .stepper-item .step-counter {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    font-weight: 800;
+    border-radius: 50%;
+    background: #ccc;
+    margin-bottom: 20px;
+}
+
+  .stepper-item::before {
+    position: absolute;
+    content: "";
+    border-bottom: 10px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: -50%;
+    z-index: 2;
+  }
+  
+  .stepper-item::after {
+    position: absolute;
+    content: "";
+    border-bottom: 10px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 4;
+  }
+  .stepper-item.completed::after {
+    position: absolute;
+    content: "";
+    border-bottom: 10px solid #409fde;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 3;
+  }
+  .step{
+    font-weight: 800;
+    color: #3d96cd;
+  }
+
+  
+  .stepper-item.completed .step-counter {
+    background-color: #3d96cd;
+
+  }
+  
+  
+  .stepper-item:first-child::before {
+    content: none;
+  }
+  .stepper-item:last-child::after {
+    content: none;
+  }
